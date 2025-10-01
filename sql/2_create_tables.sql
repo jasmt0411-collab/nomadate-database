@@ -15,6 +15,18 @@ BEGIN
 END
 GO
 
+IF OBJECT_ID('dbo.Users','U') IS NULL
+BEGIN
+    CREATE TABLE dbo.Users (
+        UserId INT IDENTITY(1,1) PRIMARY KEY,
+        Email NVARCHAR(200) NOT NULL UNIQUE,
+        UserName NVARCHAR(50) NOT NULL,
+        Passw NVARCHAR (255) NOT NULL,
+        BirthDate DATE NULL
+    );
+END
+GO
+    
 IF OBJECT_ID('dbo.Reservations','U') IS NULL
 BEGIN
     CREATE TABLE dbo.Reservations (
